@@ -2,7 +2,7 @@
 
 Name:           python-%{srcname}
 Version:        2.1.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Python bindings for libspotify
 
 License:        ASL 2.0
@@ -78,6 +78,9 @@ rm _build/html/.buildinfo
 
 
 %changelog
+* Sat May 30 2020 Leigh Scott <leigh123linux@gmail.com> - 2.1.2-3
+- Rebuild for python-3.9
+
 * Wed Feb 05 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 2.1.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
