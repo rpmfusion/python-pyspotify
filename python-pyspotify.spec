@@ -2,7 +2,7 @@
 
 Name:           python-%{srcname}
 Version:        2.1.2
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Python bindings for libspotify
 
 License:        ASL 2.0
@@ -78,6 +78,9 @@ rm _build/html/.buildinfo
 
 
 %changelog
+* Sat May 30 2020 Leigh Scott <leigh123linux@gmail.com> - 2.1.2-4
+- Rebuild for python-3.9
+
 * Sat May 30 2020 Leigh Scott <leigh123linux@gmail.com> - 2.1.2-3
 - Rebuild for python-3.9
 
