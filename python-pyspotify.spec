@@ -25,6 +25,7 @@ BuildRequires:  libspotify-devel
 BuildRequires:  python3-cffi
 BuildRequires:  python3-invoke
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-pytest
 Requires:       python3-cffi
 %{?python_provide:%python_provide python3-%{srcname}}
 
@@ -57,9 +58,9 @@ EOF
 invoke3 preprocess-header
 %py3_build
 
-cd docs
-make SPHINXBUILD=sphinx-build-3 html
-rm _build/html/.buildinfo
+#cd docs
+#make SPHINXBUILD=sphinx-build-3 html
+#rm _build/html/.buildinfo
 
 %install
 %py3_install
@@ -74,12 +75,13 @@ rm _build/html/.buildinfo
 %{python3_sitearch}/spotify/
 
 %files doc
-%doc docs/_build/html
+#%%doc docs/_build/html
 
 
 %changelog
 * Wed Feb 16 2022 Sérgio Basto <sergio@serjux.com> - 2.1.3-1
 - Update python-pyspotify to 2.1.3
+- Drop docs (https://github.com/jodal/pyspotify/issues/211)
 
 * Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 2.1.2-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
