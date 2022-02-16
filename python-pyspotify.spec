@@ -1,8 +1,8 @@
 %global srcname pyspotify
 
 Name:           python-%{srcname}
-Version:        2.1.2
-Release:        9%{?dist}
+Version:        2.1.3
+Release:        1%{?dist}
 Summary:        Python bindings for libspotify
 
 License:        ASL 2.0
@@ -78,6 +78,9 @@ rm _build/html/.buildinfo
 
 
 %changelog
+* Wed Feb 16 2022 Sérgio Basto <sergio@serjux.com> - 2.1.3-1
+- Update python-pyspotify to 2.1.3
+
 * Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 2.1.2-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
