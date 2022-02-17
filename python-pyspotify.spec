@@ -1,13 +1,16 @@
 %global srcname pyspotify
 
+%global         commit0 d8d68626d85868d61229f02d13ce17a725965882
+%global         shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+
 Name:           python-%{srcname}
 Version:        2.1.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Python bindings for libspotify
 
 License:        ASL 2.0
 URL:            https://pyspotify.mopidy.com/
-Source0:        %{pypi_source pyspotify}
+Source0:        https://github.com/jodal/pyspotify/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
 
 ExclusiveArch:  i686 x86_64 armv7hl
 
@@ -42,7 +45,7 @@ Documentation for pyspotify, the Python bindings for libspotify.
 
 
 %prep
-%autosetup -n %{srcname}-%{version}
+%autosetup -n %{srcname}-%{commit0}
 rm spotify/api.processed.h
 # overwriting upstream's manifest as it includes a lot of files we do not want,
 # and we need some additional excludes as well
@@ -58,9 +61,10 @@ EOF
 invoke3 preprocess-header
 %py3_build
 
-#cd docs
+cd docs
 #make SPHINXBUILD=sphinx-build-3 html
-#rm _build/html/.buildinfo
+make html
+rm _build/html/.buildinfo
 
 %install
 %py3_install
@@ -75,10 +79,13 @@ invoke3 preprocess-header
 %{python3_sitearch}/spotify/
 
 %files doc
-#%%doc docs/_build/html
+%doc docs/_build/html
 
 
 %changelog
+* Thu Feb 17 2022 Sérgio Basto <sergio@serjux.com> - 2.1.3-2
+- Re-enable docs (fixed by upstream)
+
 * Wed Feb 16 2022 Sérgio Basto <sergio@serjux.com> - 2.1.3-1
 - Update python-pyspotify to 2.1.3
 - Drop docs (https://github.com/jodal/pyspotify/issues/211)
